@@ -1,0 +1,200 @@
+[
+  {
+    "link": "tools/backup.js",
+    "name": "backup",
+    "desc": "Create a tar.gz backup with a JSON manifest (hashes, sizes), verify archives, and prune by retention",
+    "usage": "node tools/backup.js ./public_html --out ./backups --keep 7 --json",
+    "tags": [
+      "devops",
+      "backup",
+      "archive"
+    ]
+  },
+  {
+    "link": "tools/certgen.js",
+    "name": "certgen",
+    "desc": "Generate RSA/EC keys, CSRs and self-signed certificates via openssl, plus base64 one-liners for CSR submission",
+    "usage": "node tools/certgen.js --cn example.com --san example.com,www.example.com --days 825 --out ./certs",
+    "tags": [
+      "devops",
+      "tls",
+      "certificates"
+    ]
+  },
+  {
+    "link": "tools/cronlab.js",
+    "name": "cronlab",
+    "desc": "Explain/validate cron expressions in English, compute next run times, and convert between formats",
+    "usage": "node tools/cronlab.js \"*/15 9-17 * * 1-5\" --next 5 --json",
+    "tags": [
+      "devops",
+      "cron",
+      "scheduler"
+    ]
+  },
+  {
+    "link": "tools/deploycheck.js",
+    "name": "deploycheck",
+    "desc": "Run pre-deploy checks: env parity, secrets in repo, untracked files, build artifacts, git cleanliness",
+    "usage": "node tools/deploycheck.js ./myapp --json",
+    "tags": [
+      "devops",
+      "ci",
+      "deploy"
+    ]
+  },
+  {
+    "link": "tools/dockerclean.js",
+    "name": "dockerclean",
+    "desc": "Report dangling images, stopped containers, orphan volumes and build cache; emit a safe/aggressive cleanup plan",
+    "usage": "node tools/dockerclean.js --mode plan --json",
+    "tags": [
+      "devops",
+      "docker",
+      "cleanup"
+    ]
+  },
+  {
+    "link": "tools/dotenvgen.js",
+    "name": "dotenvgen",
+    "desc": "Produce .env/.env.example/.env.docker from a single schema file with secret generation and validation",
+    "usage": "node tools/dotenvgen.js schema.json --out .env --gen-secrets",
+    "tags": [
+      "devops",
+      "config",
+      "generator"
+    ]
+  },
+  {
+    "link": "tools/envcheck.js",
+    "name": "envcheck",
+    "desc": "Diff a .env against .env.example: find missing, extra, empty and duplicate keys (CI gate)",
+    "usage": "node tools/envcheck.js .env --template .env.example --json",
+    "tags": [
+      "devops",
+      "config",
+      "ci"
+    ]
+  },
+  {
+    "link": "tools/firewalldiff.js",
+    "name": "firewalldiff",
+    "desc": "Dump iptables/nftables/ufw rules, flag dangerous accepts, and diff against a saved baseline",
+    "usage": "node tools/firewalldiff.js --save baseline.json  |  node tools/firewalldiff.js --diff baseline.json",
+    "tags": [
+      "devops",
+      "firewall",
+      "hardening"
+    ]
+  },
+  {
+    "link": "tools/gitstats.js",
+    "name": "gitstats",
+    "desc": "Repo stats: commits per author, churn per file, busiest hours, stale branches, TODO debt count",
+    "usage": "node tools/gitstats.js . --months 12 --json",
+    "tags": [
+      "devops",
+      "git",
+      "metrics"
+    ]
+  },
+  {
+    "link": "tools/gru.js",
+    "name": "gru",
+    "desc": "Audit /etc/passwd and /etc/group: UID 0 accounts, empty passwords, sudo membership, shell inventory, staleness",
+    "usage": "node tools/gru.js /etc/passwd /etc/group --shadow /etc/shadow --json",
+    "tags": [
+      "devops",
+      "linux",
+      "hardening"
+    ]
+  },
+  {
+    "link": "tools/healthcheck.js",
+    "name": "healthcheck",
+    "desc": "Poll a URL until it returns expected status/body, with interval, retries and total-time budget",
+    "usage": "node tools/healthcheck.js http://localhost:3000/healthz --expect 200 --retries 30 --json",
+    "tags": [
+      "devops",
+      "monitoring",
+      "ci"
+    ]
+  },
+  {
+    "link": "tools/logparse.js",
+    "name": "logparse",
+    "desc": "Parse nginx/apache access logs: top IPs, paths, status mix, scanners, and attack signatures",
+    "usage": "node tools/logparse.js access.log --top 20 --json",
+    "tags": [
+      "devops",
+      "logs",
+      "forensics"
+    ]
+  },
+  {
+    "link": "tools/nginxgen.js",
+    "name": "nginxgen",
+    "desc": "Generate production nginx server blocks: static, reverse proxy, websocket, PHP-FPM, redirect, TLS",
+    "usage": "node tools/nginxgen.js proxy --domain api.example.com --upstream 127.0.0.1:3000 --out api.conf",
+    "tags": [
+      "devops",
+      "nginx",
+      "generator"
+    ]
+  },
+  {
+    "link": "tools/pkgdiff.js",
+    "name": "pkgdiff",
+    "desc": "Diff dependencies between two package.json/composer.json/lockfiles: added, removed, bumped, risky majors",
+    "usage": "node tools/pkgdiff.js old/package.json new/package.json --json",
+    "tags": [
+      "devops",
+      "dependencies",
+      "ci"
+    ]
+  },
+  {
+    "link": "tools/portmap.js",
+    "name": "portmap",
+    "desc": "Map listening sockets to owning processes and flag unexpected public binds",
+    "usage": "node tools/portmap.js --json",
+    "tags": [
+      "devops",
+      "network",
+      "diagnostics"
+    ]
+  },
+  {
+    "link": "tools/sslrenew.js",
+    "name": "sslrenew",
+    "desc": "Check certificates for renewal, list the exact renewal commands, and land SNI hostname grouping",
+    "usage": "node tools/sslrenew.js hosts.txt --days 21 --json",
+    "tags": [
+      "devops",
+      "tls",
+      "monitoring"
+    ]
+  },
+  {
+    "link": "tools/syssnap.js",
+    "name": "syssnap",
+    "desc": "Collect CPU, memory, disk, load, uptime, top processes into one snapshot with a health verdict",
+    "usage": "node tools/syssnap.js --interval 1000 --json",
+    "tags": [
+      "devops",
+      "monitoring",
+      "diagnostics"
+    ]
+  },
+  {
+    "link": "tools/wpconfig.js",
+    "name": "wpconfig",
+    "desc": "Audit wp-config.php + .htaccess: salts, debug flags, file edit, DB prefix, table_prefix, exposed backups",
+    "usage": "node tools/wpconfig.js ./public_html --json",
+    "tags": [
+      "devops",
+      "wordpress",
+      "hardening"
+    ]
+  }
+]
