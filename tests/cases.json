@@ -125,15 +125,16 @@
         "{tmp}/p.txt"
       ],
       "fixtures": {
-        "p.txt": "/usr/local/bin:/usr/bin:/bin\n"
+        "p.txt": "/usr/bin::./local:/usr/bin\n"
       },
       "expect": {
         "exit": 1,
         "stdout_regex": [
-          "PATH|path|dir"
+          "relative|empty|duplicate|writable|shadow"
         ],
         "no_stack": true
-      }
+      },
+      "note": "OS-agnostic: an empty component and a relative component are findings on every platform, unlike a POSIX-only PATH list"
     },
     {
       "tool": "systemdunit.js",
