@@ -11,6 +11,41 @@
     ]
   },
   {
+    "link": "tools/bandwidth.js",
+    "name": "bandwidth",
+    "desc": "Parse ifconfig / ip -s / vnstat / /proc/net/dev counters, compute throughput rates from two samples, and surface drops and errors",
+    "usage": "node tools/bandwidth.js sample1.txt sample2.txt --json",
+    "tags": [
+      "devops",
+      "network",
+      "metrics"
+    ]
+  },
+  {
+    "link": "tools/basicauth.js",
+    "name": "basicauth",
+    "desc": "Create and verify htpasswd-style credentials (bcrypt via scrypt/PBKDF2 documented) with an .htaccess snippet",
+    "usage": "node tools/basicauth.js issue --user admin --pass secret --json",
+    "tags": [
+      "devops",
+      "http",
+      "basic-auth",
+      "security"
+    ]
+  },
+  {
+    "link": "tools/certchain.js",
+    "name": "certchain",
+    "desc": "Fetch a host's served certificate chain, verify each link's signature, check ordering, expiry and missing intermediates, and report the root trust path",
+    "usage": "node tools/certchain.js example.com:443 --json",
+    "tags": [
+      "devops",
+      "tls",
+      "certificates",
+      "audit"
+    ]
+  },
+  {
     "link": "tools/certgen.js",
     "name": "certgen",
     "desc": "Generate RSA/EC keys, CSRs and self-signed certificates via openssl, plus base64 one-liners for CSR submission",
@@ -19,6 +54,40 @@
       "devops",
       "tls",
       "certificates"
+    ]
+  },
+  {
+    "link": "tools/composecheck.js",
+    "name": "composecheck",
+    "desc": "Lint docker-compose files for privileged mode, host-exposed ports, missing restart/healthcheck/resource limits and inline secrets",
+    "usage": "node tools/composecheck.js docker-compose.yml --json",
+    "tags": [
+      "devops",
+      "docker",
+      "audit"
+    ]
+  },
+  {
+    "link": "tools/cronaudit.js",
+    "name": "cronaudit",
+    "desc": "Audit crontabs: duplicates, overlapping schedules, world-writable scripts, PATH hijack risk, missing redirection and shell metacharacters",
+    "usage": "node tools/cronaudit.js /etc/crontab /etc/cron.d --json",
+    "tags": [
+      "devops",
+      "cron",
+      "audit"
+    ]
+  },
+  {
+    "link": "tools/cronconvert.js",
+    "name": "cronconvert",
+    "desc": "Convert schedules both ways: cron expression to systemd OnCalendar and English, OnCalendar to cron, and next-run previews",
+    "usage": "node tools/cronconvert.js \"*/15 9-17 * * 1-5\" --to systemd --json",
+    "tags": [
+      "devops",
+      "cron",
+      "systemd",
+      "scheduler"
     ]
   },
   {
@@ -44,6 +113,28 @@
     ]
   },
   {
+    "link": "tools/diskusage.js",
+    "name": "diskusage",
+    "desc": "Walk directories for size and inode usage, report the biggest files and directories, and diff against a saved baseline snapshot",
+    "usage": "node tools/diskusage.js /var --top 20 --save baseline.json --json",
+    "tags": [
+      "devops",
+      "disk",
+      "capacity"
+    ]
+  },
+  {
+    "link": "tools/dnspropagate.js",
+    "name": "dnspropagate",
+    "desc": "Query a record type across public resolvers over UDP, report answer disagreement, per-resolver latency and an overall propagation verdict",
+    "usage": "node tools/dnspropagate.js example.com A --json",
+    "tags": [
+      "devops",
+      "dns",
+      "network"
+    ]
+  },
+  {
     "link": "tools/dockerclean.js",
     "name": "dockerclean",
     "desc": "Report dangling images, stopped containers, orphan volumes and build cache; emit a safe/aggressive cleanup plan",
@@ -52,6 +143,18 @@
       "devops",
       "docker",
       "cleanup"
+    ]
+  },
+  {
+    "link": "tools/dockerfilecheck.js",
+    "name": "dockerfilecheck",
+    "desc": "Dockerfile lint: latest tags, root user, ADD vs COPY, secrets in ARG/ENV, layer bloat, missing HEALTHCHECK and multi-stage opportunities",
+    "usage": "node tools/dockerfilecheck.js Dockerfile --json",
+    "tags": [
+      "devops",
+      "docker",
+      "dockerfile",
+      "audit"
     ]
   },
   {
@@ -74,6 +177,29 @@
       "devops",
       "config",
       "ci"
+    ]
+  },
+  {
+    "link": "tools/envdiff.js",
+    "name": "envdiff",
+    "desc": "Diff two environments (dotenv files or KEY=value dumps): added, removed, changed keys with secret values masked",
+    "usage": "node tools/envdiff.js .env.staging .env.prod --json",
+    "tags": [
+      "devops",
+      "config",
+      "drift"
+    ]
+  },
+  {
+    "link": "tools/envrc.js",
+    "name": "envrc",
+    "desc": "Parse .envrc: list exports and PATH changes, flag arbitrary shell execution, network fetches and missing `use` allow directives",
+    "usage": "node tools/envrc.js .envrc --json",
+    "tags": [
+      "devops",
+      "direnv",
+      "shell",
+      "audit"
     ]
   },
   {
@@ -121,6 +247,75 @@
     ]
   },
   {
+    "link": "tools/htpasswdgen.js",
+    "name": "htpasswdgen",
+    "desc": "Generate .htpasswd entries (apr1, sha1, scrypt, pbkdf2) as a batch from a CSV or prompts, with a verify mode and duplicate detection",
+    "usage": "node tools/htpasswdgen.js --users users.csv --scheme apr1 --out .htpasswd --json",
+    "tags": [
+      "devops",
+      "htpasswd",
+      "security"
+    ]
+  },
+  {
+    "link": "tools/imagetag.js",
+    "name": "imagetag",
+    "desc": "Sort semver-ish image tags, find the newest patch per minor, and flag mutable, stale and non-conforming tags",
+    "usage": "node tools/imagetag.js tags.txt --json",
+    "tags": [
+      "devops",
+      "docker",
+      "registry",
+      "versioning"
+    ]
+  },
+  {
+    "link": "tools/incidentlog.js",
+    "name": "incidentlog",
+    "desc": "Parse incident logs into a normalised timeline, compute MTTD/MTTA/MTTR, and detect recurrence patterns by service and cause",
+    "usage": "node tools/incidentlog.js incidents.log --json",
+    "tags": [
+      "devops",
+      "incident",
+      "sre",
+      "postmortem"
+    ]
+  },
+  {
+    "link": "tools/k8scheck.js",
+    "name": "k8scheck",
+    "desc": "Audit Kubernetes YAML manifests for privileged containers, root users, latest tags, missing probes/limits and hostPath mounts",
+    "usage": "node tools/k8scheck.js deploy.yaml --json",
+    "tags": [
+      "devops",
+      "kubernetes",
+      "audit"
+    ]
+  },
+  {
+    "link": "tools/kvmreport.js",
+    "name": "kvmreport",
+    "desc": "Parse libvirt domain XML: vCPU/memory allocation, disk and network devices, host-passthrough CPU and autostart flags",
+    "usage": "node tools/kvmreport.js domain.xml --json",
+    "tags": [
+      "devops",
+      "kvm",
+      "libvirt",
+      "virtualization"
+    ]
+  },
+  {
+    "link": "tools/lbcheck.js",
+    "name": "lbcheck",
+    "desc": "Probe upstream backends over HTTP(S), report status/serving state, pairwise response consistency and retry-aware flapping detection",
+    "usage": "node tools/lbcheck.js upstreams.txt --path /healthz --json",
+    "tags": [
+      "devops",
+      "loadbalancer",
+      "healthcheck"
+    ]
+  },
+  {
     "link": "tools/logparse.js",
     "name": "logparse",
     "desc": "Parse nginx/apache access logs: top IPs, paths, status mix, scanners, and attack signatures",
@@ -129,6 +324,41 @@
       "devops",
       "logs",
       "forensics"
+    ]
+  },
+  {
+    "link": "tools/mailauth.js",
+    "name": "mailauth",
+    "desc": "Check SPF (all-qualifier, lookup count), DMARC (policy, rua, pct), DKIM selector presence, MTA-STS, TLS-RPT and BIMI, with a spoofability verdict",
+    "usage": "node tools/mailauth.js example.com --dkim-selectors google,s1,mail --json",
+    "tags": [
+      "devops",
+      "email",
+      "dns",
+      "security"
+    ]
+  },
+  {
+    "link": "tools/makefile.js",
+    "name": "makefile",
+    "desc": "Parse a Makefile: list targets with doc comments, show variables, and flag .PHONY gaps plus dangerous targets",
+    "usage": "node tools/makefile.js Makefile --json",
+    "tags": [
+      "devops",
+      "make",
+      "build"
+    ]
+  },
+  {
+    "link": "tools/nfsmount.js",
+    "name": "nfsmount",
+    "desc": "Parse /etc/exports and mount options, flag insecure settings (no_root_squash, insecure, no_subtree_check, wildcard hosts) and recommend safe defaults",
+    "usage": "node tools/nfsmount.js /etc/exports /proc/mounts --json",
+    "tags": [
+      "devops",
+      "nfs",
+      "storage",
+      "audit"
     ]
   },
   {
@@ -143,6 +373,18 @@
     ]
   },
   {
+    "link": "tools/pathaudit.js",
+    "name": "pathaudit",
+    "desc": "Analyse PATH (or an explicit list) for world-writable directories, relative entries, duplicate binaries and shadowed system commands",
+    "usage": "node tools/pathaudit.js --json",
+    "tags": [
+      "devops",
+      "security",
+      "path",
+      "audit"
+    ]
+  },
+  {
     "link": "tools/pkgdiff.js",
     "name": "pkgdiff",
     "desc": "Diff dependencies between two package.json/composer.json/lockfiles: added, removed, bumped, risky majors",
@@ -154,6 +396,28 @@
     ]
   },
   {
+    "link": "tools/playbookaudit.js",
+    "name": "playbookaudit",
+    "desc": "Heuristic Ansible playbook audit: shell/command usage, become risks, plaintext vars, missing changed_when and ignore_errors",
+    "usage": "node tools/playbookaudit.js site.yml --json",
+    "tags": [
+      "devops",
+      "ansible",
+      "audit"
+    ]
+  },
+  {
+    "link": "tools/portforward.js",
+    "name": "portforward",
+    "desc": "Build ssh -L/-R/-D tunnel commands plus jump-host chains from a declarative JSON spec, with ready-to-paste config blocks",
+    "usage": "node tools/portforward.js tunnels.json --json",
+    "tags": [
+      "devops",
+      "ssh",
+      "tunneling"
+    ]
+  },
+  {
     "link": "tools/portmap.js",
     "name": "portmap",
     "desc": "Map listening sockets to owning processes and flag unexpected public binds",
@@ -162,6 +426,41 @@
       "devops",
       "network",
       "diagnostics"
+    ]
+  },
+  {
+    "link": "tools/runbookgen.js",
+    "name": "runbookgen",
+    "desc": "Turn a service manifest (deps, healthcheck, contacts, escalation) into a markdown runbook with diagnosis, rollback and escalation steps",
+    "usage": "node tools/runbookgen.js service.json --out RUNBOOK.md --json",
+    "tags": [
+      "devops",
+      "runbook",
+      "oncall",
+      "docs"
+    ]
+  },
+  {
+    "link": "tools/smarthealth.js",
+    "name": "smarthealth",
+    "desc": "Parse smartctl -a output: reallocated/pending sectors, wear levelling, temperature, power-on hours and a failure-risk heuristic",
+    "usage": "node tools/smarthealth.js smartctl-all.txt --json",
+    "tags": [
+      "devops",
+      "disk",
+      "smart",
+      "health"
+    ]
+  },
+  {
+    "link": "tools/sshconfig.js",
+    "name": "sshconfig",
+    "desc": "Map jump-host topology and audit ssh_config security/keepalive options, reporting which Host entries are unreachable or unsafe",
+    "usage": "node tools/sshconfig.js ~/.ssh/config --json",
+    "tags": [
+      "devops",
+      "ssh",
+      "audit"
     ]
   },
   {
@@ -184,6 +483,52 @@
       "devops",
       "monitoring",
       "diagnostics"
+    ]
+  },
+  {
+    "link": "tools/systemdunit.js",
+    "name": "systemdunit",
+    "desc": "Analyse .service units: sandboxing directives present/missing, restart policy, resource limits and capability scope",
+    "usage": "node tools/systemdunit.js /etc/systemd/system/app.service --json",
+    "tags": [
+      "devops",
+      "systemd",
+      "hardening"
+    ]
+  },
+  {
+    "link": "tools/terraformaudit.js",
+    "name": "terraformaudit",
+    "desc": "Scan .tf files for public S3 ACLs, 0.0.0.0/0 ingress, unencrypted volumes, wildcard IAM and hardcoded secrets",
+    "usage": "node tools/terraformaudit.js ./infra --json",
+    "tags": [
+      "devops",
+      "terraform",
+      "audit"
+    ]
+  },
+  {
+    "link": "tools/tlsgrade.js",
+    "name": "tlsgrade",
+    "desc": "Grade a TLS endpoint A+ to F: protocol versions, cipher strength, forward secrecy, certificate chain, OCSP stapling, HSTS and key size",
+    "usage": "node tools/tlsgrade.js example.com:443 --json",
+    "tags": [
+      "devops",
+      "tls",
+      "security",
+      "audit"
+    ]
+  },
+  {
+    "link": "tools/uptimecalc.js",
+    "name": "uptimecalc",
+    "desc": "Compute availability, error budget, remaining budget and burn rate from a list of incident durations and an SLO target",
+    "usage": "node tools/uptimecalc.js incidents.csv --slo 99.9 --window 30d --json",
+    "tags": [
+      "devops",
+      "sre",
+      "slo",
+      "oncall"
     ]
   },
   {
