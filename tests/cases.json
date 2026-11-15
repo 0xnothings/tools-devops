@@ -1,0 +1,273 @@
+{
+  "note": "Per-tool output assertions. `node assertcheck.js --update` records a golden, `node assertcheck.js` verifies. Fixtures are UTF-8; fixtures_b64 carries raw bytes.",
+  "cases": [
+    {
+      "tool": "cronlab.js",
+      "args": [
+        "*/15 9-17 * * 1-5",
+        "--next",
+        "2"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_contains": [
+          "at hours 9",
+          "on Mon,Tue,Wed,Thu,Fri"
+        ],
+        "stdout_regex": [
+          "next 2"
+        ]
+      }
+    },
+    {
+      "tool": "cronlab.js",
+      "args": [
+        "0 0 * * *"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_contains": [
+          "means:"
+        ]
+      }
+    },
+    {
+      "tool": "cronlab.js",
+      "args": [
+        "99 * * * *"
+      ],
+      "expect": {
+        "exit": 1,
+        "stdout_contains": [
+          "INVALID"
+        ],
+        "no_stack": true
+      }
+    },
+    {
+      "tool": "cronlab.js",
+      "args": [
+        "@daily"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_contains": [
+          "at hour 0",
+          "every day"
+        ]
+      }
+    },
+    {
+      "tool": "makefile.js",
+      "args": [
+        "{tmp}/Makefile"
+      ],
+      "fixtures": {
+        "Makefile": "CC = gcc\n\n.PHONY: all clean\n\nall: build\n\t$(CC) -o out main.c\n\nclean:\n\trm -f out\n"
+      },
+      "expect": {
+        "exit": 0,
+        "stdout_regex": [
+          "all|clean|CC"
+        ]
+      }
+    },
+    {
+      "tool": "composecheck.js",
+      "args": [
+        "{tmp}/c.yml"
+      ],
+      "fixtures": {
+        "c.yml": "services:\n  api:\n    image: nginx:latest\n    privileged: true\n    ports:\n      - \"8080:8080\"\n    environment:\n      - DATABASE_PASSWORD=hunter2\n"
+      },
+      "expect": {
+        "exit": 1,
+        "stdout_contains": [
+          "privileged",
+          "CRITICAL"
+        ]
+      }
+    },
+    {
+      "tool": "composecheck.js",
+      "args": [
+        "{tmp}/ok.yml"
+      ],
+      "fixtures": {
+        "ok.yml": "services:\n  api:\n    image: nginx:1.25\n    restart: unless-stopped\n    user: \"1000:1000\"\n    ports:\n      - \"127.0.0.1:8080:8080\"\n    healthcheck:\n      test: [\"CMD\", \"curl\", \"-f\", \"http://localhost/\"]\n"
+      },
+      "expect": {
+        "exit": 0,
+        "stdout_contains": [
+          "findings:"
+        ]
+      }
+    },
+    {
+      "tool": "dockerfilecheck.js",
+      "args": [
+        "{tmp}/Dockerfile"
+      ],
+      "fixtures": {
+        "Dockerfile": "FROM node:latest\nADD . /app\nENV API_KEY=abc123def456\nRUN npm install\n"
+      },
+      "expect": {
+        "exit": 1,
+        "stdout_regex": [
+          "latest|root|ADD|secret|ENV"
+        ]
+      }
+    },
+    {
+      "tool": "pathaudit.js",
+      "args": [
+        "--path",
+        "{tmp}/p.txt"
+      ],
+      "fixtures": {
+        "p.txt": "/usr/local/bin:/usr/bin:/bin\n"
+      },
+      "expect": {
+        "exit": 1,
+        "stdout_regex": [
+          "PATH|path|dir"
+        ],
+        "no_stack": true
+      }
+    },
+    {
+      "tool": "systemdunit.js",
+      "args": [
+        "{tmp}/x.service"
+      ],
+      "fixtures": {
+        "x.service": "[Unit]\nDescription=x\n[Service]\nExecStart=/usr/bin/x\nUser=root\n[Install]\nWantedBy=multi-user.target\n"
+      },
+      "expect": {
+        "exit": 1,
+        "stdout_regex": [
+          "NoNewPrivileges|ProtectSystem|hardening|User|root"
+        ],
+        "no_stack": true
+      }
+    },
+    {
+      "tool": "nfsmount.js",
+      "args": [
+        "{tmp}/exports"
+      ],
+      "fixtures": {
+        "exports": "/srv/data *(rw,sync,no_root_squash,insecure)\n"
+      },
+      "expect": {
+        "exit": 1,
+        "stdout_contains": [
+          "no_root_squash"
+        ]
+      }
+    },
+    {
+      "tool": "cronconvert.js",
+      "args": [
+        "0 3 * * *"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_regex": [
+          "OnCalendar|03:00"
+        ]
+      }
+    },
+    {
+      "tool": "uptimecalc.js",
+      "args": [
+        "--help"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_contains": [
+          "uptimecalc"
+        ]
+      }
+    },
+    {
+      "tool": "sslrenew.js",
+      "args": [
+        "example.com"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_regex": [
+          "example.com",
+          "days"
+        ]
+      }
+    },
+    {
+      "tool": "tlsgrade.js",
+      "args": [
+        "example.com"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_regex": [
+          "grade|TLS"
+        ]
+      }
+    },
+    {
+      "tool": "certchain.js",
+      "args": [
+        "example.com"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_regex": [
+          "chain|certificate|link"
+        ]
+      }
+    },
+    {
+      "tool": "mailauth.js",
+      "args": [
+        "example.com"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_regex": [
+          "spf|dmarc|SPF|DMARC"
+        ]
+      }
+    },
+    {
+      "tool": "envcheck.js",
+      "args": [
+        "{tmp}/.env",
+        "--template",
+        "{tmp}/.env.example"
+      ],
+      "fixtures": {
+        ".env": "A=1\nB=2\nC=\n",
+        ".env.example": "A=\nB=\nD=\n"
+      },
+      "expect": {
+        "exit": 1,
+        "stdout_contains": [
+          "MISSING",
+          "D"
+        ],
+        "no_stack": true
+      }
+    },
+    {
+      "tool": "gitstats.js",
+      "args": [
+        "."
+      ],
+      "expect": {
+        "exit": 1,
+        "no_stack": true
+      }
+    }
+  ]
+}
