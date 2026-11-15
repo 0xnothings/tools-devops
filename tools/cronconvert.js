@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // cronconvert.js — convert between cron, systemd OnCalendar and English.
 // Copyright (c) 2026 0xnothings
 // @tool cronconvert

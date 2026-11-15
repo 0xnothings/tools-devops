@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // cronaudit.js — security review of crontabs and /etc/cron.d.
 // Copyright (c) 2026 0xnothings
 // @tool cronaudit

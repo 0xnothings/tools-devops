@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // dockerfilecheck.js — lint a Dockerfile.
 // Copyright (c) 2026 0xnothings
 // @tool dockerfilecheck

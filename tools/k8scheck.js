@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // k8scheck.js — audit Kubernetes manifests for security and reliability gaps.
 // Copyright (c) 2026 0xnothings
 // @tool k8scheck

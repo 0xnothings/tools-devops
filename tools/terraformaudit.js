@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // terraformaudit.js — fingerprint common Terraform misconfigurations.
 // Copyright (c) 2026 0xnothings
 // @tool terraformaudit

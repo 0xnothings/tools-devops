@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // bandwidth.js — turn interface counters into rates, totals and error deltas.
 // Copyright (c) 2026 0xnothings
 // @tool bandwidth

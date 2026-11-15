@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // incidentlog.js — normalise incident logs into a timeline with MTTR/MTTD.
 // Copyright (c) 2026 0xnothings
 // @tool incidentlog

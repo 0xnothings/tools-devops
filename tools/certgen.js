@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // certgen.js — self-signed and CSR certificate toolkit.
 // Copyright (c) 2026 0xnothings
 // @tool certgen

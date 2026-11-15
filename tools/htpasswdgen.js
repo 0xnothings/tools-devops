@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // htpasswdgen.js — generate and verify .htpasswd lines.
 // Copyright (c) 2026 0xnothings
 // @tool htpasswdgen

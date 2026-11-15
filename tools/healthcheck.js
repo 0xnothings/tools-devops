@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // healthcheck.js — poll an HTTP health endpoint until it is healthy.
 // Copyright (c) 2026 0xnothings
 // @tool healthcheck

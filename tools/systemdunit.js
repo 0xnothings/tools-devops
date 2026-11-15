@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // systemdunit.js — audit a systemd unit file for hardening gaps.
 // Copyright (c) 2026 0xnothings
 // @tool systemdunit

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // dockerclean.js — find Docker space hogs and generate a cleanup plan.
 // Copyright (c) 2026 0xnothings
 // @tool dockerclean

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // tlsgrade.js — grade a TLS endpoint's configuration.
 // Copyright (c) 2026 0xnothings
 // @tool tlsgrade

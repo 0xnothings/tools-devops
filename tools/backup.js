@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // backup.js — file and directory backup with manifest.
 // Copyright (c) 2026 0xnothings
 // @tool backup

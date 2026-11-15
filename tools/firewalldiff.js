@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // firewalldiff.js — firewall rule review and drift detection.
 // Copyright (c) 2026 0xnothings
 // @tool firewalldiff

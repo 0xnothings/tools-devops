@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // envrc.js — explain a direnv .envrc and flag dangerous operations.
 // Copyright (c) 2026 0xnothings
 // @tool envrc

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // composecheck.js — lint docker-compose.yml for security and reliability gaps.
 // Copyright (c) 2026 0xnothings
 // @tool composecheck

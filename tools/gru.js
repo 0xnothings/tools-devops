@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // gru.js — user and group audit for linux hosts.
 // Copyright (c) 2026 0xnothings
 // @tool gru

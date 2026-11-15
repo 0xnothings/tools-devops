@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // kvmreport.js — summarise libvirt/KVM domain XML.
 // Copyright (c) 2026 0xnothings
 // @tool kvmreport

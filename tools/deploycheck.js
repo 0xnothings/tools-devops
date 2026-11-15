@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // deploycheck.js — pre-deploy verification gate.
 // Copyright (c) 2026 0xnothings
 // @tool deploycheck

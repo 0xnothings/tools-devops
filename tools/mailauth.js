@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // mailauth.js — audit a domain's email authentication posture.
 // Copyright (c) 2026 0xnothings
 // @tool mailauth

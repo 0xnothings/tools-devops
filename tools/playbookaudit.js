@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // playbookaudit.js — heuristic audit of Ansible playbooks.
 // Copyright (c) 2026 0xnothings
 // @tool playbookaudit

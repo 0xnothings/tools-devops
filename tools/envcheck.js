@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // envcheck.js — compare .env against a template.
 // Copyright (c) 2026 0xnothings
 // @tool envcheck

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // dotenvgen.js — generate .env and .env.example from a schema.
 // Copyright (c) 2026 0xnothings
 // @tool dotenvgen

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // pathaudit.js — audit PATH for hijack and shadowing risk.
 // Copyright (c) 2026 0xnothings
 // @tool pathaudit

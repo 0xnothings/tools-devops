@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // wpconfig.js — WordPress hardening and config audit (local or remote).
 // Copyright (c) 2026 0xnothings
 // @tool wpconfig

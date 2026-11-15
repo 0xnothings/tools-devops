@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // logparse.js — access/error log analyser.
 // Copyright (c) 2026 0xnothings
 // @tool logparse

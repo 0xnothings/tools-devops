@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // portmap.js — local listening port to process mapper.
 // Copyright (c) 2026 0xnothings
 // @tool portmap

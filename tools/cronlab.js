@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // cronlab.js — cron expression explainer and validator.
 // Copyright (c) 2026 0xnothings
 // @tool cronlab

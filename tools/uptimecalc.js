@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // uptimecalc.js — SLO budget and burn-rate calculator.
 // Copyright (c) 2026 0xnothings
 // @tool uptimecalc

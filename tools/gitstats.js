@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // gitstats.js — repository contribution and churn statistics.
 // Copyright (c) 2026 0xnothings
 // @tool gitstats

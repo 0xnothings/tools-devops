@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // lbcheck.js — probe a set of load-balancer upstreams for health and consistency.
 // Copyright (c) 2026 0xnothings
 // @tool lbcheck

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // syssnap.js — one-shot system health snapshot.
 // Copyright (c) 2026 0xnothings
 // @tool syssnap

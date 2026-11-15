@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // smarthealth.js — parse smartctl output into a disk health verdict.
 // Copyright (c) 2026 0xnothings
 // @tool smarthealth

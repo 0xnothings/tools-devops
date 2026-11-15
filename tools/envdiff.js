@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // envdiff.js — diff two environment dumps by key, masking secrets.
 // Copyright (c) 2026 0xnothings
 // @tool envdiff

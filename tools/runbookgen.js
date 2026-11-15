@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // runbookgen.js — generate an operational runbook from a service manifest.
 // Copyright (c) 2026 0xnothings
 // @tool runbookgen

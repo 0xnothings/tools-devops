@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // certchain.js — walk and validate a live TLS certificate chain.
 // Copyright (c) 2026 0xnothings
 // @tool certchain

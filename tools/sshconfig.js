@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // sshconfig.js — audit and map an ssh_config.
 // Copyright (c) 2026 0xnothings
 // @tool sshconfig

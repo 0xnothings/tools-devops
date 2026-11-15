@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // portforward.js — generate SSH tunnel command lines from a JSON spec.
 // Copyright (c) 2026 0xnothings
 // @tool portforward

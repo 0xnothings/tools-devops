@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // imagetag.js — sort and audit container image tags.
 // Copyright (c) 2026 0xnothings
 // @tool imagetag

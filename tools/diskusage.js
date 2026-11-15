@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // diskusage.js — directory space analyser with baseline growth tracking.
 // Copyright (c) 2026 0xnothings
 // @tool diskusage

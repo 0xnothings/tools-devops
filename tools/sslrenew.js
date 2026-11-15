@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // sslrenew.js — check certificates for renewal.
 // Copyright (c) 2026 0xnothings
 // @tool sslrenew

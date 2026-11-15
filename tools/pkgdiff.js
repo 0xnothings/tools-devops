@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // pkgdiff.js — compare dependency trees between two manifests or lockfiles.
 // Copyright (c) 2026 0xnothings
 // @tool pkgdiff

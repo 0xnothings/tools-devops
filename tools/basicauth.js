@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // basicauth.js — issue and verify HTTP Basic credentials for htpasswd/bcrypt.
 // Copyright (c) 2026 0xnothings
 // @tool basicauth

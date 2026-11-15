@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // makefile.js — parse and explain a Makefile.
 // Copyright (c) 2026 0xnothings
 // @tool makefile

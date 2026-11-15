@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // nginxgen.js — nginx vhost/block generator.
 // Copyright (c) 2026 0xnothings
 // @tool nginxgen

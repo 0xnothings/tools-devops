@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // dnspropagate.js — check one record across many public resolvers.
 // Copyright (c) 2026 0xnothings
 // @tool dnspropagate

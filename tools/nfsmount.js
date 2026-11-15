@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // nfsmount.js — audit NFS exports and mount options.
 // Copyright (c) 2026 0xnothings
 // @tool nfsmount
