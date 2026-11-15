@@ -2,6 +2,8 @@
 
 Zero-dependency Node.js operational tools. Config hygiene, deploy gates, log analysis, certificate lifecycle, host audits, and generators — all standard library only.
 
+**[Landing page](https://0xnothings.github.io) · [All four repos](https://github.com/0xnothings)**
+
 ```bash
 node tools/deploycheck.js ./myapp
 node tools/logparse.js access.log --top 20
