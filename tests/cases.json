@@ -122,19 +122,18 @@
       "tool": "pathaudit.js",
       "args": [
         "--path",
-        "{tmp}/p.txt"
+        "/usr/bin::./local"
       ],
-      "fixtures": {
-        "p.txt": "/usr/bin::./local:/usr/bin\n"
-      },
       "expect": {
         "exit": 1,
-        "stdout_regex": [
-          "relative|empty|duplicate|writable|shadow"
+        "stdout_contains": [
+          "empty-component",
+          "relative-entry",
+          "CRITICAL"
         ],
         "no_stack": true
       },
-      "note": "OS-agnostic: an empty component and a relative component are findings on every platform, unlike a POSIX-only PATH list"
+      "note": "deterministic: empty and relative components are findings on both Windows and Linux"
     },
     {
       "tool": "systemdunit.js",
